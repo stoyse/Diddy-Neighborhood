@@ -1,24 +1,64 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp1sw4857avf3"]
+[gd_scene load_steps=8 format=3 uid="uid://cp1sw4857avf3"]
 
-[ext_resource type="Texture2D" uid="uid://i1inpqql4n0w" path="res://icon.svg" id="1_metfq"]
 [ext_resource type="PackedScene" uid="uid://8pmywd3f4kce" path="res://player.tscn" id="2_6syyc"]
+[ext_resource type="Texture2D" uid="uid://d3s3hyoj0vu1a" path="res://City_House_2/textures/Cycles_Render.jpg" id="2_metfq"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_o1325"]
-size = Vector3(30.665, 1, 32.2057)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_km660"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3217w"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6syyc"]
+resource_name = "City_House_2_BI_Plane"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"format": 34896613383,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_km660"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_3217w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o1325"]
+albedo_texture = ExtResource("2_metfq")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vy7fe"]
+size = Vector3(1, 0.243164, 1)
 
 [node name="World" type="Node3D"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.46148)
-visible = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.750488, 0, 2.86465)
-shape = SubResource("BoxShape3D_o1325")
-
-[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D"]
-transform = Transform3D(-0.823791, 99.9966, 0, -8.35883, -0.0688616, 99.65, 99.6466, 0.820908, 8.35912, 0, 0, 7.16186)
-texture = ExtResource("1_metfq")
-
 [node name="player" parent="." instance=ExtResource("2_6syyc")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 3.22813, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 2, 0)
+
+[node name="Plane" type="MeshInstance3D" parent="."]
+transform = Transform3D(21.2216, 0, 0, 0, 21.2216, 0, 0, 0, 21.2216, 0, 0, 0)
+mesh = SubResource("ArrayMesh_6syyc")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_o1325")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Plane"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D"]
+transform = Transform3D(0.999997, 0, 0, 0, 0.999997, 0, 0, 0, 0.999997, 0, -0.116375, 0)
+shape = SubResource("BoxShape3D_vy7fe")
