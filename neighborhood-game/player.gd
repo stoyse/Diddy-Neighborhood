@@ -14,7 +14,10 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
+		# Yaw (rotate body around Y axis)
 		rotate_y(-event.relative.x * mouse_sensitivity)
+		
+		# Pitch (rotate head up/down, clamped to avoid flipping)
 		pitch = clamp(pitch - event.relative.y * mouse_sensitivity, deg_to_rad(-89), deg_to_rad(89))
 		head.rotation.x = pitch
 
@@ -43,7 +46,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.name == "player":  
-		get_tree().change_scene_to_file("res://house.tscn") 
+	if body.name == "player":
+		get_tree().change_scene_to_file("res://house.tscn")
