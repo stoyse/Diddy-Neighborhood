@@ -69,18 +69,18 @@ shape = SubResource("BoxShape3D_vy7fe")
 
 [node name="walls" type="Node" parent="."]
 
-[node name="goblinglb" parent="." instance=ExtResource("3_vy7fe")]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="goblinglb"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3097, -9.53674e-07, -2.60276)
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10, 0, -2.603)
 script = ExtResource("3_o1325")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="goblinglb/CharacterBody3D"]
+[node name="goblinglb" parent="CharacterBody3D" instance=ExtResource("3_vy7fe")]
+transform = Transform3D(-0.998118, 0, 0.0613272, 0, 1, 0, -0.0613272, 0, -0.998118, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -6.12007)
 shape = SubResource("CapsuleShape3D_metfq")
 debug_color = Color(3.85046e-07, 0.338274, 0.398316, 0.42)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="goblinglb/CharacterBody3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="CharacterBody3D"]
 
-[node name="RayCast3D" type="RayCast3D" parent="goblinglb/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.159472, 0.665509, 0.712748)
+[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D"]
