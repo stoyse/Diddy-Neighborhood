@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp1sw4857avf3"]
+
+[ext_resource type="Texture2D" uid="uid://i1inpqql4n0w" path="res://icon.svg" id="1_metfq"]
+[ext_resource type="PackedScene" uid="uid://8pmywd3f4kce" path="res://player.tscn" id="2_6syyc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o1325"]
+size = Vector3(30.665, 1, 32.2057)
+
+[node name="World" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.46148)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.750488, 0, 2.86465)
+shape = SubResource("BoxShape3D_o1325")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(-0.823791, 99.9966, 0, -8.35883, -0.0688616, 99.65, 99.6466, 0.820908, 8.35912, 0, 0, 7.16186)
+texture = ExtResource("1_metfq")
+
+[node name="player" parent="." instance=ExtResource("2_6syyc")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 3.22813, 0)
