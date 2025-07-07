@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://tv0mqu3geu46"]
+
+[ext_resource type="PackedScene" uid="uid://n8tto440velg" path="res://City_House_2/City_House_2_BI.glb" id="1_bn501"]
+[ext_resource type="Texture2D" uid="uid://d3s3hyoj0vu1a" path="res://City_House_2/textures/Cycles_Render.jpg" id="2_chn2r"]
+[ext_resource type="Texture2D" uid="uid://caeyclbxkqug7" path="res://City_House_2/textures/city_house_2_Col.jpg" id="3_pdng4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1m5jd"]
+albedo_texture = ExtResource("2_chn2r")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xo8fy"]
+albedo_texture = ExtResource("3_pdng4")
+
+[node name="City_House_2_BI" instance=ExtResource("1_bn501")]
+
+[node name="Plane" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_1m5jd")
+
+[node name="city_house_2" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xo8fy")
