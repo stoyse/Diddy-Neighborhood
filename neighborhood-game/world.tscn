@@ -22,9 +22,10 @@ transform = Transform3D(-0.823791, 99.9966, 0, -8.35883, -0.0688616, 99.65, 99.6
 texture = ExtResource("1_fj7yv")
 
 [node name="player" parent="." instance=ExtResource("1_f3sb7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.8882, 5.46322)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.8882, 20.6407)
 
 [node name="City_House_2_BI" parent="." instance=ExtResource("3_tlwt5")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.239059, 0.971005, 0, -0.971005, -0.239059, 0, 0, 0, 1, 0, 16.3069, 0)
