@@ -20,4 +20,4 @@ transform = Transform3D(-0.823791, 99.9966, 0, -8.35883, -0.0688616, 99.65, 99.6
 texture = ExtResource("1_fj7yv")
 
 [node name="player" parent="." instance=ExtResource("1_f3sb7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.99467, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.8882, 0)
