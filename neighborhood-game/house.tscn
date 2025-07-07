@@ -81,5 +81,5 @@ debug_color = Color(3.85046e-07, 0.338274, 0.398316, 0.42)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.796966, 0)
 texture = ExtResource("1_metfq")
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.665509, 0.712748)
+[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.159472, 0.665509, 0.712748)
